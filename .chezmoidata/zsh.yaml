@@ -21,7 +21,6 @@ zsh:
     - zsh-autosuggestions
     - zsh-syntax-highlighting
     - fzf
-    - asdf
     - zoxide
     - git
     - kubectl

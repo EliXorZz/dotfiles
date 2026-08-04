@@ -8,12 +8,12 @@ brew:
       - zoxide
       - eza
       - fzf
-      - asdf
       - sops
       - age
       - k9s
       - uv
       - ffmpeg
+      - fluxcd/tap/flux
       - anomalyco/tap/opencode
     casks:
       - font-hack-nerd-font
@@ -29,7 +29,12 @@ brew:
     casks:
       - orbstack
   work:
-    packages: []
+    packages:
+      - php@8.1
+      - php@8.2
+      - php@8.3
+      - php@8.4
+      - php@8.5
     casks:
       - bitwarden
       - desktime
