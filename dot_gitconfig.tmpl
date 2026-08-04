@@ -1,0 +1,13 @@
+[gpg]
+	format = ssh
+[user]
+	name = {{ .name }}
+	email = {{ .email }}
+	signingkey = ~/.ssh/ssh_key.pub
+[commit]
+	gpgsign = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

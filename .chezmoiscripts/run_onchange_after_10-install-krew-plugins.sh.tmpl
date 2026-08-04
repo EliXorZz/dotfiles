@@ -1,0 +1,29 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+set -x
+
+{{- if .kubectl.enable }}
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+installed_plugins=$(kubectl-krew list | awk '$1 != "krew" {print $1}')
+desired_plugins=(
+{{- range .kubectl.plugins }}
+    {{ . }}
+{{- end }}
+)
+
+for plugin in "${desired_plugins[@]}"; do
+    if ! echo "$installed_plugins" | grep -qx "$plugin"; then
+        kubectl-krew install "$plugin"
+    fi
+done
+
+for plugin in $installed_plugins; do
+    if [[ ! " ${desired_plugins[*]} " =~ " ${plugin} " ]]; then
+        kubectl-krew uninstall "$plugin"
+    fi
+done
+
+{{ end -}}
+{{ end -}}

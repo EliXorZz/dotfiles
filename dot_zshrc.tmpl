@@ -1,0 +1,42 @@
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export ZSH="$HOME/.oh-my-zsh"
+
+export EDITOR={{ .zsh.editor | quote }}
+
+# Disable auto-update for chezmoi.io
+DISABLE_AUTO_UPDATE="true"
+
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME={{ .zsh.theme | quote }}
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=({{- range .zsh.plugins }} {{ . }}{{- end }}
+{{- if .zsh.starship }} starship{{ end }} )
+
+source $ZSH/oh-my-zsh.sh
+
+{{ if .kubectl.enable -}}
+# Krew
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+{{- end }}
+
+# Aliases
+{{ if .kubectl.enable -}}
+alias kubectl="kubecolor"
+{{ end -}}
+{{ range $name, $command := .zsh.aliases -}}
+alias {{ $name }}="{{ $command }}"
+{{- end }}
+
+# Inits
+{{ range .zsh.init -}}
+    {{ . }}
+{{- end }}
+
+for file in ~/.config/zsh/*.sh; do
+    [ -r "$file" ] && source "$file"
+done

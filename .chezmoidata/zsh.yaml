@@ -1,0 +1,14 @@
+zsh:
+  externals: {}
+  editor: nano
+  starship: true
+  theme: ""
+  plugins:
+    - zoxide
+    - git
+    - kubectl
+  aliases:
+    ls: eza --icons=always
+    k: kubectl
+  init:
+    - eval "$(zoxide init zsh --cmd cd)"

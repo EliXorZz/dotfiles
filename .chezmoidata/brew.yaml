@@ -1,0 +1,29 @@
+brew:
+  common:
+    packages:
+      - zoxide
+      - eza
+      - fzf
+      - bat
+      - mise
+      - sops
+      - age
+      - k9s
+      - uv
+      - anomalyco/tap/opencode
+    casks:
+      - font-hack-nerd-font
+      - jetbrains-toolbox
+      - raycast
+      - zen
+      - ghostty
+      - bruno
+      - nikitabobko/tap/aerospace
+  personal:
+    packages: []
+    casks: []
+  work:
+    packages: []
+    casks:
+      - bitwarden
+      - desktime

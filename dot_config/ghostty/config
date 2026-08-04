@@ -1,0 +1,11 @@
+background-blur-radius = 20
+background-opacity = 0.700000
+keybind = global:alt+t=toggle_quick_terminal
+macos-titlebar-style = tabs
+mouse-hide-while-typing = true
+quick-terminal-position = center
+theme = dracula
+title = Terminal
+window-padding-x = 20
+window-padding-y = 20
+window-save-state = never

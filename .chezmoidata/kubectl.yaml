@@ -1,0 +1,5 @@
+kubectl:
+  enable: true
+  plugins:
+    - ns
+    - ctx

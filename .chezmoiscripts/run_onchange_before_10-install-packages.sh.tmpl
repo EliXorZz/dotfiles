@@ -1,0 +1,37 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+export HOMEBREW_NO_REQUIRE_TAP_TRUST=1
+set -e
+
+cat > /tmp/Brewfile.chezmoi <<EOF
+{{ range .brew.common.packages -}}
+brew {{ . | quote }}
+{{ end -}}
+
+{{ range .brew.common.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+
+{{ range (index .brew .profile).packages -}}
+brew {{ . | quote }}
+{{ end -}}
+
+{{ range (index .brew .profile).casks -}}
+cask {{ . | quote }}
+{{ end -}}
+
+{{ if .kubectl.enable }}
+brew "kubectl"
+brew "kubecolor"
+{{ end -}}
+{{ if .zsh.starship }}
+brew "starship"
+{{ end -}}
+EOF
+
+brew bundle --file=/tmp/Brewfile.chezmoi
+brew bundle cleanup --force --file=/tmp/Brewfile.chezmoi
+
+rm -f /tmp/Brewfile.chezmoi
+{{- end }}

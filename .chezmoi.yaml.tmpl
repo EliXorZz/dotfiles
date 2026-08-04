@@ -1,0 +1,13 @@
+{{- $choices := list "personal" "work" -}}
+{{- $profile := promptChoiceOnce . "profile" "Choose profile" $choices -}}
+data:
+  profile: {{ $profile }}
+  name: {{ promptStringOnce . "name" "Name" }}
+  email: {{ promptStringOnce . "email" "Email address" }}
+  ssh: {{ promptStringOnce . "ssh" "SSH key" }}
+  ssh_public: {{ promptStringOnce . "ssh" "SSH public key" }}
+
+encryption: age
+age:
+  identity: {{ .chezmoi.homeDir }}/.sops/key.txt
+  recipient: age15t85cuazs46zj54j8aw73a0nrq0njzy07uakdkzg2f32e7282qeq5hv2x3
