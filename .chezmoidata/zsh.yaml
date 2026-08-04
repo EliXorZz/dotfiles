@@ -28,6 +28,7 @@ zsh:
     - laravel
   aliases:
     ls: eza --icons=always
-    cdp: 'builtin cd "$(find "$GHQ_ROOT" -name .git -type d -prune -print | sed "s|/.git$||" | fzf)"'
+    cat: bat --paging=never
+    cdp: builtin cd "$(find "$GHQ_ROOT" -name .git -type d -prune -print | sed "s|/.git$||" | fzf)"
   init:
     - eval "$(zoxide init zsh --cmd cd)"
