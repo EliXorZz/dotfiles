@@ -1,5 +1,13 @@
 kubectl:
   enable: true
   plugins:
+    - oidc-login
     - ns
     - ctx
+    - stern
+    - neat
+    - kor
+    - resource_capacity
+    - access_matrix
+    - sniff
+    - tree

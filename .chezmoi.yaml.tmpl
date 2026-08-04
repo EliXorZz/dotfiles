@@ -4,8 +4,6 @@ data:
   profile: {{ $profile }}
   name: {{ promptStringOnce . "name" "Name" }}
   email: {{ promptStringOnce . "email" "Email address" }}
-  ssh: {{ promptStringOnce . "ssh" "SSH key" }}
-  ssh_public: {{ promptStringOnce . "ssh" "SSH public key" }}
 
 encryption: age
 age:

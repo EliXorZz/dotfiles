@@ -25,5 +25,29 @@ for plugin in $installed_plugins; do
     fi
 done
 
+# Create completion wrappers for krew plugins that support __complete.
+# kubectl delegates plugin completion to kubectl_complete-<name> in PATH;
+# cobra-based plugins support __complete, others (shell scripts) do not.
+KREW_BIN="${KREW_ROOT:-$HOME/.krew}/bin"
+
+for plugin_bin in "$KREW_BIN"/kubectl-*; do
+    [ -x "$plugin_bin" ] || continue
+
+    name=$(basename "$plugin_bin")
+
+    # Skip existing completion wrappers
+    [[ "$name" == kubectl_complete-* ]] && continue
+
+    # Test if plugin supports __complete (cobra-based)
+    if "$plugin_bin" __complete "" >/dev/null 2>&1; then
+        comp_script="$KREW_BIN/kubectl_complete-${name#kubectl-}"
+        cat > "$comp_script" << EOF
+#!/bin/sh
+$plugin_bin __complete "\$@"
+EOF
+        chmod +x "$comp_script"
+    fi
+done
+
 {{ end -}}
 {{ end -}}

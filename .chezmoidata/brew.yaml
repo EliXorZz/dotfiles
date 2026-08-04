@@ -1,19 +1,24 @@
 brew:
   common:
     packages:
+      - git-lfs
+      - autoconf
+      - ghq
+      - bat
       - zoxide
       - eza
       - fzf
-      - bat
-      - mise
+      - asdf
       - sops
       - age
       - k9s
       - uv
+      - ffmpeg
       - anomalyco/tap/opencode
     casks:
       - font-hack-nerd-font
       - jetbrains-toolbox
+      - spotify
       - raycast
       - zen
       - ghostty
@@ -21,7 +26,8 @@ brew:
       - nikitabobko/tap/aerospace
   personal:
     packages: []
-    casks: []
+    casks:
+      - orbstack
   work:
     packages: []
     casks:

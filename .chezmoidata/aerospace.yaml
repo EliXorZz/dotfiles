@@ -1,0 +1,38 @@
+aerospace:
+  floating-workspaces:
+    - 8
+    - 9
+  floating-apps:
+    - app-id: com.apple.finder
+    - app-id: com.infomaniak.chat
+    - app-id: com.spotify.client
+    - app-id: com.hnc.Discord
+    - app-id: org.openvpn.client.app
+    - app-id: com.bitwarden.desktop
+  apps:
+    - app-id: com.jetbrains.goland
+      workspace: 1
+    - app-id: com.jetbrains.phpstorm
+      workspace: 1
+    - app-id: com.jetbrains.intellij
+      workspace: 1
+    - app-id: com.jetbrains.pycharm
+      workspace: 1
+    - app-id: com.jetbrains.webstorm
+      workspace: 1
+    - app-id: com.mitchellh.ghostty
+      workspace: 2
+    - app-id: app.zen-browser.zen
+      workspace: 3
+    - app-id: com.usebruno.app
+      workspace: 4
+    - app-id: com.infomaniak.chat
+      workspace: 8
+    - app-id: com.spotify.client
+      workspace: 9
+    - app-id: com.hnc.Discord
+      workspace: 9
+    - app-id: org.openvpn.client.app
+      workspace: 9
+    - app-id: com.bitwarden.desktop
+      workspace: 9
