@@ -3,6 +3,7 @@ brew:
     packages:
       - git-lfs
       - autoconf
+      - fastfetch
       - ghq
       - bat
       - zoxide
@@ -11,6 +12,8 @@ brew:
       - sops
       - age
       - k9s
+      - janosmiko/tap/lfk
+      - robusta-dev/homebrew-krr/krr
       - uv
       - ffmpeg
       - fluxcd/tap/flux
