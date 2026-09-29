@@ -30,5 +30,6 @@ zsh:
     ls: eza --icons=always
     cat: bat --paging=never
     cdp: builtin cd "$(find "$GHQ_ROOT" -name .git -type d -prune -print | sed "s|/.git$||" | fzf)"
+    k9s: sofka
   init:
     - eval "$(zoxide init zsh --cmd cd)"
