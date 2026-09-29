@@ -1,0 +1,46 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "==> Applying macOS preferences..."
+
+# Theme
+echo "  - Theme"
+defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
+
+# Dock
+echo "  - Dock"
+defaults write com.apple.dock orientation -string "{{ .macos.dock.orientation }}"
+defaults write com.apple.dock tilesize -int {{ .macos.dock.tilesize }}
+defaults write com.apple.dock largesize -int {{ .macos.dock.largesize }}
+defaults write com.apple.dock magnification -bool {{ .macos.dock.magnification }}
+defaults write com.apple.dock autohide -bool {{ .macos.dock.autohide }}
+defaults write com.apple.dock autohide-delay -float {{ .macos.dock.autohideDelay }}
+defaults write com.apple.dock autohide-time-modifier -float {{ .macos.dock.autohideTimeModifier }}
+defaults write com.apple.dock show-recents -bool {{ .macos.dock.showRecents }}
+defaults write com.apple.dock mineffect -string "{{ .macos.dock.mineffect }}"
+
+# Dock items (only if defined)
+{{- if .macos.dock.items }}
+if command -v dockutil >/dev/null 2>&1; then
+  echo "  - Dock items (dockutil)"
+  dockutil --no-restart --remove all >/dev/null 2>&1 || true
+{{- range .macos.dock.items }}
+{{- if eq .type "app" }}
+  dockutil --no-restart --add "{{ .path }}"
+{{- else if eq .type "spacer" }}
+  dockutil --no-restart --add '' --type spacer
+{{- else if eq .type "folder" }}
+  dockutil --no-restart --add "{{ .path }}" --view {{ .view }} --display {{ .display }}
+{{- end }}
+{{- end }}
+else
+  echo "  - dockutil not found, skipping Dock items"
+fi
+{{- end }}
+
+# Restart services
+killall Dock 2>/dev/null || true
+
+echo "==> macOS preferences applied."
+{{- end }}

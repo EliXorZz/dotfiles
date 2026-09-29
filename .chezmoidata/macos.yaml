@@ -1,0 +1,23 @@
+macos:
+  theme: dark
+  dock:
+    orientation: bottom
+    tilesize: 48
+    largesize: 64
+    magnification: true
+    autohide: true
+    autohideDelay: 0.2
+    autohideTimeModifier: 0.5
+    showRecents: false
+    mineffect: genie
+    items:
+      - type: app
+        path: /Applications/OpenVPN Connect.app
+      - type: app
+        path: /Applications/Bitwarden.app
+      - type: app
+        path: /System/Applications/Calendar.app
+      - type: app
+        path: /Applications/Ghostty.app
+      - type: app
+        path: /Applications/Zen.app

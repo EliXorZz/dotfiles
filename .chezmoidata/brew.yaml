@@ -1,6 +1,8 @@
 brew:
   common:
     packages:
+      - pkg-config
+      - imagemagick
       - git-lfs
       - autoconf
       - fastfetch
@@ -12,6 +14,7 @@ brew:
       - sops
       - age
       - k9s
+      - nklmilojevic/sofka/sofka
       - janosmiko/tap/lfk
       - robusta-dev/homebrew-krr/krr
       - uv
@@ -21,9 +24,12 @@ brew:
     casks:
       - font-hack-nerd-font
       - jetbrains-toolbox
+      - macshot
       - spotify
       - raycast
       - zen
+      - firefox
+      - google-chrome
       - ghostty
       - bruno
       - nikitabobko/tap/aerospace
@@ -33,12 +39,16 @@ brew:
       - orbstack
   work:
     packages:
-      - node
+      - node@26
+      - node@20
       - php@8.1
       - php@8.2
       - php@8.3
       - php@8.4
       - php@8.5
+      - composer
+      - yt-dlp
+      - frpc
     casks:
       - bitwarden
       - desktime

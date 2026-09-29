@@ -28,6 +28,8 @@ brew "kubecolor"
 {{ if .zsh.starship }}
 brew "starship"
 {{ end -}}
+
+brew "dockutil"
 EOF
 
 brew bundle --file=/tmp/Brewfile.chezmoi
