@@ -17,7 +17,6 @@ brew:
       - nklmilojevic/sofka/sofka
       - janosmiko/tap/lfk
       - robusta-dev/homebrew-krr/krr
-      - uv
       - ffmpeg
       - fluxcd/tap/flux
       - anomalyco/tap/opencode

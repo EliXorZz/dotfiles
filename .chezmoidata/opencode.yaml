@@ -1,0 +1,12 @@
+# Externals opencode : skills téléchargés par `chezmoi apply` via
+# .chezmoiexternal.yaml.tmpl (rendu avec toYaml, comme zsh.externals).
+# Clé = chemin cible. Les collections runtime (ponytail, superpowers) sont
+# des plugins opencode, pas des externals.
+opencode:
+  externals:
+    .config/opencode/skills/security-audit:
+      type: archive
+      url: https://github.com/cloudflare/security-audit-skill/archive/refs/heads/main.tar.gz
+      exact: true
+      stripComponents: 3
+      refreshPeriod: 168h

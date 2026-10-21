@@ -1,20 +1,28 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "share": "disabled",
-  "provider": {
+  "model": "infomaniak/euria-code",
+  "default_agent": "plan",
+  "plugins": [
+    "superpowers@git+https://github.com/obra/superpowers.git",
+    "@dietrichgebert/ponytail",
+    "graphify-opencode"
+  ],
+  "providers": {
     "infomaniak": {
-      "npm": "@ai-sdk/openai-compatible",
       "name": "infomaniak",
-      "options": {
-        "baseURL": "{env:OPENAI_BASE_URL}",
-        "headers": {
-          "X-LLM-Application-Tag": "codegpt",
-          "Authorization": "Bearer {env:OPENAI_API_KEY}"
-        }
+      "package": "aisdk:@ai-sdk/openai-compatible",
+      "settings": {
+        "baseURL": "{env:OPENAI_BASE_URL}"
+      },
+      "headers": {
+        "X-LLM-Application-Tag": "codegpt",
+        "Authorization": "Bearer {env:OPENAI_API_KEY}"
       },
       "models": {
         "euria-code": {
-          "modalities": {
+          "name": "euria-code",
+          "capabilities": {
             "input": [
               "text"
             ],
@@ -22,7 +30,6 @@
               "text"
             ]
           },
-          "name": "euria-code",
           "limit": {
             "context": 250000,
             "output": 100000
@@ -33,7 +40,8 @@
           }
         },
         "euria-code-tiny": {
-          "modalities": {
+          "name": "euria-code-tiny",
+          "capabilities": {
             "input": [
               "text"
             ],
@@ -41,7 +49,6 @@
               "text"
             ]
           },
-          "name": "euria-code-tiny",
           "limit": {
             "context": 200000,
             "output": 100000
@@ -54,84 +61,336 @@
       }
     }
   },
-  "model": "infomaniak/euria-code",
-  "default_agent": "plan",
-  "agent": {
+  "agents": {
     "build": {
       "model": "infomaniak/euria-code",
-      "permission": {
-        "edit": "ask",
-        "bash": {
-          "*": "ask",
-          "git status": "allow",
-          "git diff*": "allow",
-          "git log *": "allow",
-          "grep *": "allow",
-          "ls *": "allow",
-          "pwd": "allow",
-          "find *": "allow",
-          "head *": "allow",
-          "tail *": "allow",
-          "awk *": "allow",
-          "awk *inplace*": "ask",
-          "awk *system*": "ask",
-          "sort *": "allow",
-          "uniq *": "allow",
-          "wc *": "allow",
-          "sed *": "ask",
-          "osascript *": "ask",
-          "xargs *": "ask",
-          "*-exec*": "ask",
-          "watch *": "ask",
-          "env *": "ask",
-          "sudo *": "deny",
-          "su *": "deny",
-          "doas *": "deny"
+      "permissions": [
+        {
+          "action": "edit",
+          "resource": "*",
+          "effect": "ask"
         },
-        "webfetch": "ask"
-      }
+        {
+          "action": "shell",
+          "resource": "*",
+          "effect": "ask"
+        },
+        {
+          "action": "shell",
+          "resource": "git status",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "git diff*",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "git log *",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "grep *",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "ls *",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "pwd",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "find *",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "head *",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "tail *",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "awk *",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "awk *inplace*",
+          "effect": "ask"
+        },
+        {
+          "action": "shell",
+          "resource": "awk *system*",
+          "effect": "ask"
+        },
+        {
+          "action": "shell",
+          "resource": "sort *",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "uniq *",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "wc *",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "sed *",
+          "effect": "ask"
+        },
+        {
+          "action": "shell",
+          "resource": "osascript *",
+          "effect": "ask"
+        },
+        {
+          "action": "shell",
+          "resource": "xargs *",
+          "effect": "ask"
+        },
+        {
+          "action": "shell",
+          "resource": "*-exec*",
+          "effect": "ask"
+        },
+        {
+          "action": "shell",
+          "resource": "watch *",
+          "effect": "ask"
+        },
+        {
+          "action": "shell",
+          "resource": "env *",
+          "effect": "ask"
+        },
+        {
+          "action": "shell",
+          "resource": "sudo *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "su *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "doas *",
+          "effect": "deny"
+        },
+        {
+          "action": "webfetch",
+          "resource": "*",
+          "effect": "ask"
+        },
+        {
+          "action": "external_directory",
+          "resource": "*",
+          "effect": "ask"
+        }
+      ]
     },
     "plan": {
       "model": "infomaniak/euria-code",
-      "permission": {
-        "edit": "deny",
-        "bash": {
-          "*": "ask",
-          "git status": "allow",
-          "git diff*": "allow",
-          "git log *": "allow",
-          "grep *": "allow",
-          "ls *": "allow",
-          "pwd": "allow",
-          "find *": "allow",
-          "head *": "allow",
-          "tail *": "allow",
-          "awk *": "allow",
-          "awk *inplace*": "ask",
-          "awk *system*": "ask",
-          "sort *": "allow",
-          "uniq *": "allow",
-          "wc *": "allow",
-          "sed *": "ask",
-          "osascript *": "ask",
-          "xargs *": "ask",
-          "*-exec*": "ask",
-          "watch *": "ask",
-          "env *": "ask",
-          "sudo *": "deny",
-          "su *": "deny",
-          "doas *": "deny"
+      "permissions": [
+        {
+          "action": "edit",
+          "resource": "*",
+          "effect": "deny"
         },
-        "webfetch": "ask",
-        "*_create_new_file": "deny",
-        "*_replace_text_in_file": "deny",
-        "*_rename_refactoring": "deny",
-        "*_reformat_file": "deny",
-        "*_execute_terminal_command": "deny",
-        "*_execute_run_configuration": "deny",
-        "*_build_project": "deny",
-        "*_execute_sql_query": "deny"
-      }
+        {
+          "action": "shell",
+          "resource": "*",
+          "effect": "ask"
+        },
+        {
+          "action": "shell",
+          "resource": "git status",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "git diff*",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "git log *",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "grep *",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "ls *",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "pwd",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "find *",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "head *",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "tail *",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "awk *",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "awk *inplace*",
+          "effect": "ask"
+        },
+        {
+          "action": "shell",
+          "resource": "awk *system*",
+          "effect": "ask"
+        },
+        {
+          "action": "shell",
+          "resource": "sort *",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "uniq *",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "wc *",
+          "effect": "allow"
+        },
+        {
+          "action": "shell",
+          "resource": "sed *",
+          "effect": "ask"
+        },
+        {
+          "action": "shell",
+          "resource": "osascript *",
+          "effect": "ask"
+        },
+        {
+          "action": "shell",
+          "resource": "xargs *",
+          "effect": "ask"
+        },
+        {
+          "action": "shell",
+          "resource": "*-exec*",
+          "effect": "ask"
+        },
+        {
+          "action": "shell",
+          "resource": "watch *",
+          "effect": "ask"
+        },
+        {
+          "action": "shell",
+          "resource": "env *",
+          "effect": "ask"
+        },
+        {
+          "action": "shell",
+          "resource": "sudo *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "su *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "doas *",
+          "effect": "deny"
+        },
+        {
+          "action": "webfetch",
+          "resource": "*",
+          "effect": "ask"
+        },
+        {
+          "action": "external_directory",
+          "resource": "*",
+          "effect": "ask"
+        },
+        {
+          "action": "*_create_new_file",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "*_replace_text_in_file",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "*_rename_refactoring",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "*_reformat_file",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "*_execute_terminal_command",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "*_execute_run_configuration",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "*_build_project",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "*_execute_sql_query",
+          "resource": "*",
+          "effect": "deny"
+        }
+      ]
     }
   }
 }

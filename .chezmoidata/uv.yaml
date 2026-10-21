@@ -1,0 +1,8 @@
+# Outils CLI installés via `uv tool`.
+# `after` : commandes exécutées après l'installation (non bloquantes).
+uv:
+  tools:
+    - name: graphifyy
+      after:
+        - graphify install
+        - (cd "$(mktemp -d)" && graphify install --platform opencode)
