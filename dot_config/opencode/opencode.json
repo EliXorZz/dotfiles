@@ -5,8 +5,7 @@
   "default_agent": "plan",
   "plugins": [
     "superpowers@git+https://github.com/obra/superpowers.git",
-    "@dietrichgebert/ponytail",
-    "graphify-opencode"
+    "@dietrichgebert/ponytail"
   ],
   "providers": {
     "infomaniak": {
@@ -63,6 +62,7 @@
   },
   "agents": {
     "build": {
+      "mode": "primary",
       "model": "infomaniak/euria-code",
       "permissions": [
         {
@@ -208,6 +208,7 @@
       ]
     },
     "plan": {
+      "mode": "primary",
       "model": "infomaniak/euria-code",
       "permissions": [
         {
