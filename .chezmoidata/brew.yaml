@@ -47,6 +47,7 @@ brew:
       - php@8.4
       - php@8.5
       - composer
+      - golangci-lint
       - yt-dlp
       - frpc
     casks:
