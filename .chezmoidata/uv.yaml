@@ -1,7 +1,6 @@
-# Outils CLI installés via `uv tool`.
-# `after` : commandes exécutées après l'installation (non bloquantes).
 uv:
   tools:
+    - name: swift
     - name: graphifyy
       after:
         - graphify install
