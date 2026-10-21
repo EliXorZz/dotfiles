@@ -1,6 +1,6 @@
 uv:
   tools:
-    - name: swift
+    - name: python-swiftclient
     - name: graphifyy
       after:
         - graphify install
