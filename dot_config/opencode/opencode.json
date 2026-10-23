@@ -7,6 +7,14 @@
     "superpowers@git+https://github.com/obra/superpowers.git",
     "@dietrichgebert/ponytail"
   ],
+  "mcp": {
+    "servers": {
+      "aislop": {
+        "type": "local",
+        "command": ["npx", "-y", "-p", "aislop", "aislop-mcp"]
+      }
+    }
+  },
   "providers": {
     "infomaniak": {
       "name": "infomaniak",
