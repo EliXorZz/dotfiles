@@ -19,7 +19,7 @@ brew:
       - robusta-dev/homebrew-krr/krr
       - ffmpeg
       - fluxcd/tap/flux
-      - anomalyco/tap/opencode
+      - anomalyco/tap/opencode-v2
       - rtk
     casks:
       - font-hack-nerd-font
@@ -50,6 +50,7 @@ brew:
       - golangci-lint
       - yt-dlp
       - frpc
+      - glab
     casks:
       - bitwarden
       - desktime
