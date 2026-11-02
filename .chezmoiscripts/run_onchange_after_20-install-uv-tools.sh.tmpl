@@ -17,7 +17,7 @@ for tool in "${desired[@]}"; do
 done
 
 {{ range .uv.tools }}
-{{- range .after }}
+{{- range index . "after" }}
 {{ . }} >/dev/null 2>&1 || true
 {{- end }}
 {{ end -}}
