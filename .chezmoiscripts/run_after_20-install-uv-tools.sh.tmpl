@@ -13,7 +13,7 @@ desired=(
 )
 
 for tool in "${desired[@]}"; do
-    uv tool list 2>/dev/null | grep -qx "$tool" || uv tool install "$tool"
+    uv tool list 2>/dev/null | awk '{print $1}' | grep -qx "$tool" || uv tool install "$tool"
 done
 
 {{ range .uv.tools }}
@@ -24,6 +24,6 @@ done
 
 # Uninstall tools no longer declared
 for tool in $(uv tool list 2>/dev/null | grep -v '^-' | awk '{print $1}'); do
-    grep -qx "$tool" <<< "${desired[*]}" || uv tool uninstall "$tool"
+    [[ " ${desired[*]} " == *" ${tool} "* ]] || uv tool uninstall "$tool"
 done
 {{- end }}
