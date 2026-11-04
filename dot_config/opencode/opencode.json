@@ -11,6 +11,14 @@
         "timeout": {
           "startup": 120000
         }
+      },
+      "goland": {
+        "type": "remote",
+        "url": "http://127.0.0.1:64422/stream"
+      },
+      "phpstorm": {
+        "type": "remote",
+        "url": "http://127.0.0.1:64442/stream"
       }
     }
   },
