@@ -3,6 +3,17 @@
   "share": "disabled",
   "model": "infomaniak/euria-code",
   "default_agent": "Engineer",
+  "mcp": {
+    "servers": {
+      "codebase-memory": {
+        "type": "local",
+        "command": ["npx", "-y", "codebase-memory-mcp@0.12.1"],
+        "timeout": {
+          "startup": 120000
+        }
+      }
+    }
+  },
   "plugins": [
     "superpowers@git+https://github.com/obra/superpowers.git",
     "@dietrichgebert/ponytail"

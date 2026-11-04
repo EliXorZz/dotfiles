@@ -1,0 +1,17 @@
+#!/bin/sh
+# Index every repo under ~/codebases into codebase-memory-mcp when its source
+# is newer than its last index (new repo, weekly chezmoi archive refresh, ...).
+CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/codebase-memory-mcp"
+
+for repo in "$HOME"/codebases/*/; do
+	[ -d "$repo" ] || exit 0
+	name=${repo%/}
+	project=$(printf %s "${name#/}" | tr / -)
+	db="$CACHE/$project.db"
+	if [ -f "$db" ] && [ -z "$(find "$repo" -type f -newer "$db" 2>/dev/null | head -1)" ]; then
+		continue
+	fi
+	printf 'codebase-memory: indexing %s\n' "$project"
+	npx -y codebase-memory-mcp@0.12.1 cli index_repository --repo-path "$name" >/dev/null || :
+done
+exit 0

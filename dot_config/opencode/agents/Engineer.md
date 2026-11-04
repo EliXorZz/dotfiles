@@ -96,3 +96,5 @@ On every task, load the `ponytail` skill with the skill tool and follow it: the 
 For any Go task, load `golang-how-to` first and follow the `golang-*` skills it selects.
 
 For Laravel work, load the relevant `laravel-*` skills and follow them: `laravel-specialist` for building apps, plus `laravel-patterns`, `laravel-security`, `laravel-tdd`, and `laravel-verification`.
+
+For broadcast, video, audio, or streaming engineering questions, dispatch the `subagents/broadcast-engineer` subagent.

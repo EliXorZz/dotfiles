@@ -46,3 +46,48 @@ opencode:
       refreshPeriod: 168h
       include:
         - '*/skills/laravel-*/**'
+
+    .config/opencode/skills/broadcast:
+      type: archive
+      url: https://github.com/damionrashford/media-os/archive/refs/heads/main.tar.gz
+      stripComponents: 2
+      refreshPeriod: 168h
+      exact: true
+      include:
+        - '*/skills/ffmpeg-probe/**'
+        - '*/skills/ffmpeg-transcode/**'
+        - '*/skills/ffmpeg-streaming/**'
+        - '*/skills/ffmpeg-video-filter/**'
+        - '*/skills/ffmpeg-audio-filter/**'
+        - '*/skills/ffmpeg-hdr-color/**'
+        - '*/skills/ffmpeg-hwaccel/**'
+        - '*/skills/ffmpeg-metadata/**'
+        - '*/skills/ffmpeg-bitstream/**'
+        - '*/skills/ffmpeg-captions/**'
+        - '*/skills/ffmpeg-cut-concat/**'
+        - '*/skills/ffmpeg-quality/**'
+        - '*/skills/ffmpeg-capture/**'
+        - '*/skills/ffmpeg-drm/**'
+        - '*/skills/ffmpeg-rist-zmq/**'
+        - '*/skills/ffmpeg-whip/**'
+        - '*/skills/ffmpeg-mxf-imf/**'
+        - '*/skills/decklink-tools/**'
+        - '*/skills/ndi-tools/**'
+        - '*/skills/mediamtx-server/**'
+        - '*/skills/media-mediainfo/**'
+        - '*/skills/media-shaka/**'
+        - '*/skills/media-gpac/**'
+        - '*/skills/gstreamer-pipeline/**'
+        - '*/skills/webrtc-spec/**'
+        - '*/skills/webrtc-pion/**'
+        - '*/skills/webrtc-livekit/**'
+        - '*/skills/webrtc-mediasoup/**'
+        - '*/skills/hdr-dovi-tool/**'
+        - '*/skills/hdr-hdr10plus-tool/**'
+
+    codebases/ffmpeg:
+      type: archive
+      url: https://github.com/FFmpeg/FFmpeg/archive/refs/heads/master.tar.gz
+      stripComponents: 1
+      refreshPeriod: 168h
+      exact: true
