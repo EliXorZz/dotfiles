@@ -1,7 +1,3 @@
-# Externals opencode : skills téléchargés par `chezmoi apply` via
-# .chezmoiexternal.yaml.tmpl (rendu avec toYaml, comme zsh.externals).
-# Clé = chemin cible. Les collections runtime (ponytail, superpowers) sont
-# des plugins opencode, pas des externals.
 opencode:
   externals:
     .config/opencode/skills/security-audit:
@@ -10,3 +6,43 @@ opencode:
       exact: true
       stripComponents: 3
       refreshPeriod: 168h
+
+    .config/opencode/skills:
+      type: archive
+      url: https://github.com/miqdadbadjuber/anti-slop/archive/refs/tags/v3.2.25.tar.gz
+      stripComponents: 2
+      include:
+        - '*/skills/antislop*/**'
+
+    .config/opencode/skills/code-review/SKILL.md:
+      type: file
+      url: https://raw.githubusercontent.com/mattpocock/skills/321658273cb1d20b76026717d027d505790106d4/skills/engineering/code-review/SKILL.md
+      refreshPeriod: 168h
+
+    .config/opencode/skills/resolving-merge-conflicts/SKILL.md:
+      type: file
+      url: https://raw.githubusercontent.com/mattpocock/skills/321658273cb1d20b76026717d027d505790106d4/skills/engineering/resolving-merge-conflicts/SKILL.md
+
+    .config/opencode/skills/golang:
+      type: archive
+      url: https://github.com/samber/cc-skills-golang/archive/refs/heads/main.tar.gz
+      stripComponents: 2
+      refreshPeriod: 168h
+      include:
+        - '*/skills/golang-*/**'
+
+    .config/opencode/skills/laravel:
+      type: archive
+      url: https://github.com/Jeffallan/claude-skills/archive/refs/heads/main.tar.gz
+      stripComponents: 2
+      refreshPeriod: 168h
+      include:
+        - '*/skills/laravel-specialist/**'
+
+    .config/opencode/skills/laravel/ecc:
+      type: archive
+      url: https://github.com/affaan-m/ECC/archive/refs/heads/main.tar.gz
+      stripComponents: 2
+      refreshPeriod: 168h
+      include:
+        - '*/skills/laravel-*/**'
