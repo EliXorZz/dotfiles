@@ -1,8 +1,16 @@
+{{- $elastic := list -}}
+{{- range $name, $url := (output "sh" "-c" "cat $HOME/.config/opencode/es-clusters.json 2>/dev/null || echo {}" | fromJson) -}}
+{{-   $srv := dict "type" "local" "command" (list "npx" "-y" "@elastic/mcp-server-elasticsearch@0.1.1") "environment" (dict "ES_URL" $url "ES_USERNAME" "{env:ES_USERNAME}" "ES_PASSWORD" "{env:ES_PASSWORD}") "timeout" (dict "startup" 120000) -}}
+{{-   $elastic = append $elastic (printf "%s:%s" (toJson $name) (toJson $srv)) -}}
+{{- end -}}
 {
   "$schema": "https://opencode.ai/config.json",
   "share": "disabled",
   "model": "infomaniak/euria-code",
   "default_agent": "Engineer",
+  "permissions": [
+    { "action": "es*", "resource": "*", "effect": "deny" }
+  ],
   "mcp": {
     "servers": {
       "codebase-memory": {
@@ -19,7 +27,7 @@
       "phpstorm": {
         "type": "remote",
         "url": "http://127.0.0.1:64442/stream"
-      }
+      }{{ if $elastic }},{{ join "," $elastic }}{{ end }}
     }
   },
   "plugins": [
