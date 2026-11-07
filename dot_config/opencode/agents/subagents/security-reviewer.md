@@ -86,6 +86,9 @@ permissions:
   - action: "external_directory"
     resource: "*"
     effect: ask
+  - action: "subagent"
+    resource: "*"
+    effect: deny
 ---
 
 You are a read-only security reviewer. Load the `security-audit` skill with the skill tool and follow it.

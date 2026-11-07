@@ -114,6 +114,9 @@ permissions:
   - action: "*_execute_sql_query"
     resource: "*"
     effect: deny
+  - action: "subagent"
+    resource: "*"
+    effect: deny
 ---
 
 You are an investigator. You root-cause incidents by collecting evidence from whatever sources are available, never by guessing.

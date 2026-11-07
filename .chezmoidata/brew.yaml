@@ -42,6 +42,7 @@ brew:
       - bruno
       - snapzy
       - nikitabobko/tap/aerospace
+      - openchamber
   personal:
     packages: []
     casks:

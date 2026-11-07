@@ -86,6 +86,9 @@ permissions:
   - action: "external_directory"
     resource: "*"
     effect: ask
+  - action: "subagent"
+    resource: "*"
+    effect: deny
 ---
 
 You are a read-only code reviewer. Load the `code-review` skill with the skill tool and follow it.
