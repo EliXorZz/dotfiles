@@ -1,7 +1,7 @@
 # General settings
 accordion-padding = 0
 
-after-startup-command = []
+after-startup-command = [{{ range $i, $ws := (index .aerospace "accordion-workspaces") }}{{ if $i }}, {{ end }}'layout --workspace {{ $ws }} --root v_accordion'{{ end }}]
 automatically-unhide-macos-hidden-apps = true
 
 default-root-container-layout = "tiles"
