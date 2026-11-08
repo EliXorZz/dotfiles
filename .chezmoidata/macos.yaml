@@ -20,4 +20,4 @@ macos:
       - type: app
         path: /Applications/Ghostty.app
       - type: app
-        path: /Applications/Zen.app
+        path: /Applications/Firefox.app

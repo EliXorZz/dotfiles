@@ -12,6 +12,7 @@ opencode:
       url: https://github.com/miqdadbadjuber/anti-slop/archive/refs/tags/v3.2.25.tar.gz
       stripComponents: 2
       include:
+        - '*/skills/antislop*'
         - '*/skills/antislop*/**'
 
     .config/opencode/skills/code-review/SKILL.md:
