@@ -2,3 +2,6 @@ Include ~/.colima/ssh_config
 Include ~/.ssh/config.private
 
 IdentityFile ~/.ssh/ssh_key
+
+Host *
+  UseKeychain yes
