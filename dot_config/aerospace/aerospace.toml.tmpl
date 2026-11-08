@@ -85,6 +85,7 @@ up = ["join-with up", "mode main"]
 # Always floating
 [[on-window-detected]]
 if.app-id = '{{ index . "app-id" }}'
+check-further-callbacks = true
 run = 'layout floating'
 
 {{- end }}

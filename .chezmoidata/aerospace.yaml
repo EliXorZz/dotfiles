@@ -14,13 +14,13 @@ aerospace:
   apps:
     - app-id: com.jetbrains.goland
       workspace: 1
-    - app-id: com.jetbrains.phpstorm
+    - app-id: com.jetbrains.PhpStorm
       workspace: 1
     - app-id: com.jetbrains.intellij
       workspace: 1
     - app-id: com.jetbrains.pycharm
       workspace: 1
-    - app-id: com.jetbrains.webstorm
+    - app-id: com.jetbrains.WebStorm
       workspace: 1
     - app-id: com.mitchellh.ghostty
       workspace: 2
