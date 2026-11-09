@@ -1,5 +1,5 @@
 ---
-mode: primary
+mode: all
 model: infomaniak/euria-code
 color: "#60a5fa"
 permissions:
