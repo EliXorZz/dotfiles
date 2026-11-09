@@ -8,6 +8,6 @@ kubectl:
     - neat
     - kor
     - resource_capacity
-    - access_matrix
+    - access-matrix
     - sniff
     - tree
