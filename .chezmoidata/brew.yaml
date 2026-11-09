@@ -35,6 +35,7 @@ brew:
       - font-hack-nerd-font
       - jetbrains-toolbox
       - spotify
+      - vlc
       - raycast
       - firefox
       - google-chrome
