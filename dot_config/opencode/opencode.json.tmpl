@@ -27,6 +27,13 @@
       "phpstorm": {
         "type": "remote",
         "url": "http://127.0.0.1:64442/stream"
+      },
+      "serena": {
+        "type": "local",
+        "command": ["serena", "start-mcp-server", "--context", "ide"],
+        "timeout": {
+          "startup": 120000
+        }
       }{{ if $elastic }},{{ join "," $elastic }}{{ end }}
     }
   },

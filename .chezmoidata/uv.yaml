@@ -5,3 +5,6 @@ uv:
       after:
         - graphify install
         - (cd "$(mktemp -d)" && graphify install --platform opencode)
+    - name: serena-agent
+      after:
+        - serena init
