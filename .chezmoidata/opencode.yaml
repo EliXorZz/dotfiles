@@ -86,6 +86,62 @@ opencode:
         - '*/skills/hdr-dovi-tool/**'
         - '*/skills/hdr-hdr10plus-tool/**'
 
+    .config/opencode/skills/grafana-app-sdk:
+      type: archive
+      url: https://github.com/grafana/skills/archive/refs/heads/main.tar.gz
+      stripComponents: 3
+      refreshPeriod: 168h
+      include:
+        - '*/skills/grafana-app-sdk/**'
+
+    .config/opencode/skills/grafana-cloud:
+      type: archive
+      url: https://github.com/grafana/skills/archive/refs/heads/main.tar.gz
+      stripComponents: 3
+      refreshPeriod: 168h
+      include:
+        - '*/skills/grafana-cloud/**'
+
+    .config/opencode/skills/grafana-core:
+      type: archive
+      url: https://github.com/grafana/skills/archive/refs/heads/main.tar.gz
+      stripComponents: 3
+      refreshPeriod: 168h
+      include:
+        - '*/skills/grafana-core/**'
+
+    .config/opencode/skills/grafana-datasources:
+      type: archive
+      url: https://github.com/grafana/skills/archive/refs/heads/main.tar.gz
+      stripComponents: 3
+      refreshPeriod: 168h
+      include:
+        - '*/skills/grafana-datasources/**'
+
+    .config/opencode/skills/grafana-k6:
+      type: archive
+      url: https://github.com/grafana/skills/archive/refs/heads/main.tar.gz
+      stripComponents: 3
+      refreshPeriod: 168h
+      include:
+        - '*/skills/grafana-k6/**'
+
+    .config/opencode/skills/grafana-lgtm:
+      type: archive
+      url: https://github.com/grafana/skills/archive/refs/heads/main.tar.gz
+      stripComponents: 3
+      refreshPeriod: 168h
+      include:
+        - '*/skills/grafana-lgtm/**'
+
+    .config/opencode/skills/grafana-plugins:
+      type: archive
+      url: https://github.com/grafana/skills/archive/refs/heads/main.tar.gz
+      stripComponents: 3
+      refreshPeriod: 168h
+      include:
+        - '*/skills/grafana-plugins/**'
+
     codebases/ffmpeg:
       type: archive
       url: https://github.com/FFmpeg/FFmpeg/archive/refs/heads/master.tar.gz
